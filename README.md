@@ -327,6 +327,9 @@ secretGenerator:
 ```bash
 kustomize build overlays/production
 ```
+![](./img/2a.build.overlay2.png)
+![](./img/2b.build.overlay2contd.png)
+
 
 - ### Push changes:
 ```bash
@@ -334,6 +337,7 @@ git add .
 git commit -m "Add ConfigMap and Secret"
 git push origin main
 ```
+
 
 ## Step 6: Optimize and Test the Pipeline
 ### Add Caching to GitHub Actions:
