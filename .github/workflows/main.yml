@@ -28,5 +28,7 @@
              aws-region: us-east-1
          - name: Update kubeconfig
            run: aws eks update-kubeconfig --name my-kustomize-cluster --region us-east-1
+         - name: Set output
+           run: echo "::set-output name=my_output::value"
          - name: Deploy to Kubernetes
            run: kubectl apply -k ./overlays/production/

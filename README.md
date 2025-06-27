@@ -229,6 +229,7 @@ touch .github/workflows/main.yml
 
 #### Paste:
 ```bash
+```yaml
      name: Deploy with Kustomize
      on:
        push:
@@ -259,6 +260,8 @@ touch .github/workflows/main.yml
              aws-region: us-east-1
          - name: Update kubeconfig
            run: aws eks update-kubeconfig --name my-kustomize-cluster --region us-east-1
+         - name: Set output
+           run: echo "::set-output name=my_output::value"
          - name: Deploy to Kubernetes
            run: kubectl apply -k ./overlays/production/
 ```
