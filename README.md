@@ -229,40 +229,31 @@ touch .github/workflows/main.yml
 
 #### Paste:
 ```bash
-     name: Deploy with Kustomize
-     on:
-       push:
-         branches:
-           - main
-     jobs:
-       deploy:
-         runs-on: ubuntu-latest
-         steps:
-         - name: Checkout
-           uses: actions/checkout@v4
-         - name: Cache Docker layers
-           uses: actions/cache@v4
-           with:
-             path: /tmp/.buildx-cache
-             key: ${{ runner.os }}-buildx-${{ github.sha }}
-             restore-keys: |
-               ${{ runner.os }}-buildx-
-         - name: Set up kubectl
-           uses: azure/setup-kubectl@v1
-         - name: Set up Kustomize
-           uses: imranismail/setup-kustomize@v1
-         - name: Configure AWS Credentials
-           uses: aws-actions/configure-aws-credentials@v1
-           with:
-             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-             aws-region: us-east-1
-         - name: Update kubeconfig
-           run: aws eks update-kubeconfig --name my-kustomize-cluster --region us-east-1
-         - name: Set output
-           run: echo "my_output=value" >> $GITHUB_ENV
-         - name: Deploy to Kubernetes
-           run: kubectl apply -k ./overlays/production/
+name: Deploy with Kustomize
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v1
+    - name: Set up Kustomize
+      uses: imranismail/setup-kustomize@v1
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+    - name: Update kubeconfig
+      run: aws eks update-kubeconfig --name my-kustomize-cluster --region us-east-1
+    - name: Deploy to Kubernetes
+      run: kubectl apply -k ./overlays/production/
 ```
 
 
