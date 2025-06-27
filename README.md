@@ -444,4 +444,4 @@ This project showcases how to manage Kubernetes deployments efficiently using Ku
 
  ### Contribute
 
-Pull requests are welcome! If you find issues or want to improve the workflow, feel free to fork and contribute...
+Pull requests are welcome! If you find issues or want to improve the workflow, feel free to fork and contribute.
