@@ -100,7 +100,7 @@ cd kustomize-project
 ```bash
 git init
 git add .
-git commit -m "Initial commit with Kustomize setup"
+git commit -m "Initial commit with Kustomize project"
 git branch -m master main
 git remote add origin https://github.com/yourusername/your-repository.git
 ```
