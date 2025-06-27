@@ -3,3 +3,13 @@ kind: Kustomization
 resources:
 - deployment.yaml
 - service.yaml
+configMapGenerator:
+- name: my-app-config
+  literals:
+  - app_name=MyKustomizeApp
+  - log_level=debug
+secretGenerator:
+- name: my-app-secret
+  literals:
+  - username=admin
+  - password=VGhpc01zU2VjcmVeIQ==
