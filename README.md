@@ -399,12 +399,19 @@ git add .
 git commit -m "Increase replicas to 4"
 git push 
 ```
-**Check the GitHub Actions log to see it deploy.**
+![](./img/4a.deployed.github.png)
+![](./img/4b.github.logs.png)
+
+
 
 - ### Verify in EKS:
 ```bash
 kubectl get pods
+kubectl get nodes
 ```
+![](./img/5a.get.pods.png)
+
+
 
 ## Step 7: Clean Up
 
@@ -420,7 +427,6 @@ git add .
 git commit -m "update file"
 git push
 ```
-
 
 
 ## Conclusion
