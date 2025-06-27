@@ -353,9 +353,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Cache Docker layers
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: /tmp/.buildx-cache
         key: ${{ runner.os }}-buildx-${{ github.sha }}
@@ -397,7 +397,7 @@ kubectl get svc my-app-service
 ```bash
 git add .
 git commit -m "Increase replicas to 4"
-git push origin main
+git push 
 ```
 **Check the GitHub Actions log to see it deploy.**
 
