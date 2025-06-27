@@ -383,6 +383,8 @@ jobs:
 kubectl get svc my-app-service
 ```
 **open the `EXTERNAL-IP` on browser**
+![](./img/3a.kube.svc.png)
+![](./img/3b.svc.page.png)
 
 
 ## Test Pipeline:
